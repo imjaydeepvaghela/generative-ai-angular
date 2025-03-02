@@ -1,82 +1,97 @@
-# 🤖 Angular Generative AI Demo
+# 🤖 Angular Generative AI Demo  
 
-[Click here to show demo](https://www.loom.com/share/174a79905b9d42968f574f8b6f1eda85?sid=7452f8ea-e830-4e2d-bfbd-094af2aca5ce)
+[🎥 Watch the Demo](https://www.loom.com/share/174a79905b9d42968f574f8b6f1eda85?sid=7452f8ea-e830-4e2d-bfbd-094af2aca5ce)  
 
-## 🤔 Why does this matter?
+## 🚀 Why Does This Matter?  
 
-Generative AI is changing the way we interact with technology. As AI chatbots become more commonplace, users expect certain behaviors from our apps, such as realtime text updates. Using LLM APIs, Signals, and some RxJS magic, we can create modern AI-driven user experiences.
+Generative AI is transforming the way we interact with technology. As AI-powered chatbots become more prevalent, users expect features like real-time text updates. By leveraging LLM APIs, Angular Signals, and RxJS, we can build modern AI-driven user experiences with seamless interactions.  
 
-## 🏃 Getting started
+## 🏗️ Getting Started  
 
-> [!NOTE]  
-> The Gemini API is free, so long as you're willing to share all of your usage data with Google.
+> **Note:** The Gemini API is free to use, but your usage data will be shared with Google.  
 
-1. Run `git clone https://github.com/c-o-l-i-n/ng-generative-ai-demo.git` to clone this repo.
+Follow these steps to set up the project:  
 
-2. Visit the [Google AI Studio](https://aistudio.google.com/app/apikey) to generate an API key.
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/c-o-l-i-n/ng-generative-ai-demo.git
+   ```  
 
-3. Create a `.env` file in the project root with your API key:
+2. Generate an API key from [Google AI Studio](https://aistudio.google.com/app/apikey).  
 
-   ```
+3. Create a `.env` file in the project root and add your API key:  
+   ```sh
    GOOGLE_AI_STUDIO_API_KEY=paste-api-key-here
+   ```  
+
+4. Install dependencies:  
+   ```sh
+   npm install
+   ```  
+
+5. Start the backend server on port 3000:  
+   ```sh
+   npm run server
+   ```  
+
+6. In a separate terminal, start the Angular dev server on port 4200:  
+   ```sh
+   npm start
+   ```  
+
+7. Open your browser and visit:  
    ```
+   http://localhost:4200/
+   ```  
 
-4. Run `npm install` to install dependencies.
+## 🔑 Key Takeaways  
 
-5. Run `npm run server` to start the backend server (`server.ts`) on port 3000.
+### ⚡ State Management with Signals  
+Use Angular Signals to track chat state, including message history and LLM processing status.  
 
-6. In another terminal, run `npm start` to start the Angular dev server on port 4200.
+### 🔄 Real-time Text Streaming with RxJS  
+Leverage RxJS to handle real-time updates from the LLM API, ensuring smooth and dynamic responses.  
 
-7. Navigate to `http://localhost:4200/`
+### 🔌 Configuring the Angular HTTP Client for Streaming  
+1. Enable the HTTP client with fetch in [`app.config.ts`](src/app/app.config.ts):  
+   ```typescript
+   provideHttpClient(withFetch());
+   ```  
 
-## 🔑 Key takeaways
+2. Configure the HTTP client to observe text events and report progress:  
+   ```typescript
+   this.http.post('http://localhost:3000/message', prompt, {
+     responseType: 'text',
+     observe: 'events',
+     reportProgress: true,
+   });
+   ```  
 
-- **Manage State with Signals:** Keep track of the chat state (list of messages and whether the LLM is generating a new message) with Angular Signals.
-
-- **Realtime Text Streaming with RxJS Observables:** Utilize RxJS to react to realtime updates from the LLM API.
-
-- **HTTP Client Configuration:** Configure the Angular HTTP client to handle realtime text streams:
-
-  1. Provide the HTTP client "with fetch" in [`app.config.ts`](src/app/app.config.ts):
-
-  ```typescript
-  provideHttpClient(withFetch());
-  ```
-
-  2. Tell the HTTP client to observe text events and report progress:
-
-  ```typescript
-  this.http.post('http://localhost:3000/message', prompt, {
-    responseType: 'text',
-    observe: 'events',
-    reportProgress: true,
-  });
-  ```
-
-- **Blinking Cursor:** Create a blinking cursor effect using the CSS `::after` pseudo-element and CSS `@keyframes`:
-
-  ```scss
-  .message {
-    &.generating {
-      &::after {
-        content: '▋';
-        animation: fade-cursor ease-in-out 500ms infinite alternate;
-      }
+### ✨ Blinking Cursor Effect  
+Create a blinking cursor to indicate message generation using CSS animations:  
+```scss
+.message {
+  &.generating {
+    &::after {
+      content: '▋';
+      animation: fade-cursor 500ms ease-in-out infinite alternate;
     }
   }
+}
 
-  @keyframes fade-cursor {
-    from {
-      opacity: 25%;
-    }
-    to {
-      opacity: 100%;
-    }
+@keyframes fade-cursor {
+  from {
+    opacity: 25%;
   }
-  ```
+  to {
+    opacity: 100%;
+  }
+}
+```  
 
-## 🔭 Files to explore
+## 📂 Files to Explore  
+- [`message.service.ts`](src/app/message.service.ts)  
+- [`app.config.ts`](src/app/app.config.ts)  
+- [`server.ts`](src/server.ts)  
 
-- [`message.service.ts`](src/app/message.service.ts)
-- [`app.config.ts`](src/app/app.config.ts)
-- [`server.ts`](src/server.ts)
+This README provides a concise yet detailed overview of the Angular Generative AI Demo, ensuring a smooth setup and understanding of key concepts. 🚀
