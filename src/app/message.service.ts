@@ -13,6 +13,7 @@ export interface Message {
   text: string;
   fromUser: boolean;
   generating?: boolean;
+  timestamp: Date; // Added timestamp property
 }
 
 @Injectable({
@@ -37,6 +38,7 @@ export class MessageService {
         id: window.crypto.randomUUID(),
         text: prompt,
         fromUser: true,
+        timestamp: new Date(), // Add current time
       },
     ]);
 
@@ -49,14 +51,16 @@ export class MessageService {
         this._generatingInProgress.set(false);
       },
 
-      error: (error) => {this._generatingInProgress.set(false)
-        console.log('fff',error)
+      error: (error) => {
+        this._generatingInProgress.set(false)
+        console.log('fff', error)
       },
     });
   }
 
   private getChatResponseStream(prompt: string): Observable<Message> {
     const id = window.crypto.randomUUID();
+    const timestamp = new Date(); // Create timestamp for AI message
 
     return this.http
       .post('http://localhost:3000/message', prompt, {
@@ -78,12 +82,14 @@ export class MessageService {
                   text: (event as HttpDownloadProgressEvent).partialText!,
                   fromUser: false,
                   generating: true,
+                  timestamp, // Add timestamp
                 }
               : {
                   id,
                   text: (event as HttpResponse<string>).body!,
                   fromUser: false,
                   generating: false,
+                  timestamp, // Add timestamp
                 },
         ),
         startWith<Message>({
@@ -91,6 +97,7 @@ export class MessageService {
           text: '',
           fromUser: false,
           generating: true,
+          timestamp, // Add timestamp
         }),
       );
   }
