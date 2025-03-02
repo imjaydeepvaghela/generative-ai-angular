@@ -8,7 +8,7 @@ dotenv.config();
 const server = express();
 const port = 3000;
 
-const googleAiStudioApiKey = 'GOOGLE_AI_STUDIO_APIKEY';
+const googleAiStudioApiKey = 'GOOGLE_AI_STUDIO_APIKEY'; // Replace it with the generated api key
 
 if (!googleAiStudioApiKey) {
   throw new Error('Provide GOOGLE_AI_STUDIO_API_KEY in a .env file');
@@ -40,7 +40,7 @@ server.post('/message', async (req: Request, res: Response) => {
     const result = await chat.sendMessageStream(prompt);
 
     for await (const chunk of result.stream) {
-      const chunkText = await chunk.text();  // Ensure you're awaiting the chunk
+      const chunkText = await chunk.text();
       console.log('Received chunk:', chunkText);
       res.write(chunkText);
     }
