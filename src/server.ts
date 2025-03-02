@@ -8,7 +8,7 @@ dotenv.config();
 const server = express();
 const port = 3000;
 
-const googleAiStudioApiKey = 'AIzaSyA5qOgz_ToM707EsTXvkBxPuJlpXhg_DEU';
+const googleAiStudioApiKey = 'GOOGLE_AI_STUDIO_APIKEY';
 
 if (!googleAiStudioApiKey) {
   throw new Error('Provide GOOGLE_AI_STUDIO_API_KEY in a .env file');
