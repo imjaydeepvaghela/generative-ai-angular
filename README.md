@@ -2,7 +2,7 @@
 
 [🎥 Watch the Demo](https://www.loom.com/share/174a79905b9d42968f574f8b6f1eda85?sid=7452f8ea-e830-4e2d-bfbd-094af2aca5ce)  
 
-## 🚀 Why Does This Matter?  
+## 🚀 Project Short Overview; 
 
 Generative AI is transforming the way we interact with technology. As AI-powered chatbots become more prevalent, users expect features like real-time text updates. By leveraging LLM APIs, Angular Signals, and RxJS, we can build modern AI-driven user experiences with seamless interactions.  
 
