@@ -14,7 +14,7 @@ Follow these steps to set up the project:
 
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/c-o-l-i-n/ng-generative-ai-demo.git
+   git clone https://github.com/imjaydeepvaghela/generative-ai-angular
    ```  
 
 2. Generate an API key from [Google AI Studio](https://aistudio.google.com/app/apikey).  
