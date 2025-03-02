@@ -93,5 +93,3 @@ Create a blinking cursor to indicate message generation using CSS animations:
 - [`message.service.ts`](src/app/message.service.ts)  
 - [`app.config.ts`](src/app/app.config.ts)  
 - [`server.ts`](src/server.ts)  
-
-This README provides a concise yet detailed overview of the Angular Generative AI Demo, ensuring a smooth setup and understanding of key concepts. 🚀
