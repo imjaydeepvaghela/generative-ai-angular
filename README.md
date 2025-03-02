@@ -1,6 +1,6 @@
 # 🤖 Angular Generative AI Demo
 
-[Demo](https://www.loom.com/share/174a79905b9d42968f574f8b6f1eda85?sid=9e5bc50d-a27b-4c56-b96a-a8ce9e2484c4)
+[Click here to show demo](https://www.loom.com/share/174a79905b9d42968f574f8b6f1eda85?sid=7452f8ea-e830-4e2d-bfbd-094af2aca5ce)
 
 ## 🤔 Why does this matter?
 
